@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS3 Transtions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">CSS3 Transtions</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+      <h1>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS3 Transitions, Transforms, and Animations</h1>
+
+      <p>CSS3 Transitions allow you to change the values of properties seemlessly over a specified duration</p>
+	  <p><strong>Example:</strong> Hover over the box below to see CSS3 transition effect on an element.</p>
+		
+		<div class="transition1">CSS3 Transition</div>
+		
+	  <h1>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS3 Transforms</h1>
+
+      <p>CSS3 Transforms allow you to skew, rotate, scale, and translate elements. This effect allows elements to change size, shape, and position in both 2D and 3D. </p>
+	  <p><strong>Example:</strong> Hover over the boxes below to see CSS3 transform effects in action.</p>
+		
+		<div class="transf2D1">This is a normal div element</div>
+		<div class="transf2D2">This div element uses rotate() method to rotate the element by 120 degrees</div>
+
+      <h2>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nodes</h2>
+
+      <blockquote>
+		  <p>Everything in an HTML DOM is a node. There are several different Node types such as:</p>
+      <ul>- Document node<br>
+		  - Element nodes<br>
+		  - Attribute nodes<br>
+		  - Text inside HTML elements are text nodes<br>
+		  - Comments nodes
+</ul>
+		  <p>Each node can have a child node. Nodes on the same level are called sibling nodes.</p>
+      </blockquote>
+		
+		      <h3>Heiarchy of a Nodes</h3>
+
+      <p><img src="images/tree.JPG" style="max-width:100%;"></p>
+      
+      <h6>
+      <a id="user-content-header-6" class="anchor" href="#header-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Header 6</h6>
+
+      <table>
+      <thead>
+      <tr>
+      <th>Method</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td>document.createElement(element)</td>
+      <td>Create an HTML element</td>
+      </tr>
+      <tr>
+      <td>document.removeChild(element)</td>
+      <td>Remove an HTML elementr</td>
+      </tr>
+      <tr>
+      <td>document.appendChild(element)</td>
+      <td>Add an HTML element</td>
+      </tr>
+	  <tr>
+      <td>document.replaceChild(element)</td>
+      <td>Replace an HTML element</td>
+      </tr>  
+      </tbody>
+      </table>
+		
+	  <h3>
+      <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>createElement()</h3>
+		<p>	  
+	  First, we would idendify the element that we wanted to add too. In this case, we will say we have a div element labeled "main" with two paragraphs in them labeled "first" and "second" that look like this.</p>
+		
+		<pre><code>
+		This is the first paragraph.
+		This is the second paragraph.
+		</code></pre>
+			
+			
+		<p>We can then execute the following code.</p> 
+	 
+      <pre><code>
+		var newPara = document.createElement("p");
+		var node = document.createTextNode("This is a new paragraph.");
+		newPara.appendChild(node);
+
+		var element = document.getElementById("main");
+		var child = document.getElementById("first");
+		element.insertBefore(newPara,child);
+	  </code></pre>
+	
+		<p> And get the following result;</p>
+		<pre><code>
+		This is a new paragraph.
+		This is the first paragraph.
+		This is the second paragraph.
+		</code></pre>
+		
+		
+			  <p>But what if we decide we want to remove an element? It is just as easy. First, we would idendify the element that we wanted to remove from. In this case, we will say we have a div element labeled "main" with three paragraphs in them labeled "first" "second"and "third" that look like this.</p>
+		
+		<pre><code>
+		We start with a paragraph like this.
+		And we have another one like this.
+		This is the paragraph we want to get rid of.
+		</code></pre>
+			
+			
+		<p>We can then execute the following code.</p> 
+	 
+      <pre><code>
+
+		var parent = document.getElementById("main");
+		var child = document.getElementById("third");
+		parent.removeChild(third);
+	  </code></pre>
+	
+		<p> And get the following result;</p>
+		<pre><code>
+		This is a new paragraph.
+		This is the first paragraph.
+		This is the second paragraph.
+		</code></pre>
+		
+		
+
+    </section>
+
+  </body>
+</html>
