@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS3 Transtions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JavaScript</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+      <h2>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS3 Transitions</h2>
+ 
+<h1>Variables</h1>
+<p>Variables store data values. They act very similar to the variables in Algebra. They act as containers
+that hold values. Variables are always defined with the keyword <strong>var</strong> followed by the vairable name.
+Variable names can contain letters, digits, underscores, and dollar signs and are case sensative. For example x and X
+are two different variables. Variables use the assingment opporator "=" to assign a value to the variable. </p>
+<h1>Functions</h1>
+<p>JavaScript uses Functions to perform certain tasks. A function is a block of code that is executed when something
+calls it. A function always starts with the keyword <strong>function</strong> followed by the name of the function and then
+with parentheses. The function name follows the same criteria as a variable name. They can contain letters, digits,
+underscores, and dollar signs and are case sensative. The parentheses after the function name can contain multiple parameters
+seperated by commas. These act as local vairables. After the function and parameters, the code to be executed is placed within curly brackets {}. </p>
+ 
+ 
+ 
+<h2>JavaScript Function Example</h2>
+ 
+<p>function myFunction(a, b) {<br>
+    return a + b; <br>
+}<br>
+document.getElementById("fundemo").innerHTML = myFunction('WibbilyWobbily ', 'TimeyWimey');</p>
+ 
+<h2>The Code in Action</h2>
+ 
+ 
+ 
+<p id="fundemo"></p>
+ 
+<script>
+function myFunction(a, b) {
+    return a + b;
+}
+document.getElementById("fundemo").innerHTML = myFunction('WibbilyWobbily ', 'TimeyWimey');
+</script>
+ 
+ 
+<h1>Conditional Statements</h1>
+<p>Conditional statments allow you to write code that can perform different actions for different scenerios. There are four different types of
+Conditional Statements. <br>
+-<strong>if</strong> statements are used to execute a block of code if a specified condition is true.<br>
+-<strong>else</strong> statements are used to execute a block of code if the same condition is false.<br>
+-<strong>else if</strong> statements are used to execute a block of code if the first condition is false but the second condition
+is true.<br>
+-<strong>switch</strong> statements are used to execute many different blocks of code.</p>
+ 
+<h2>If Statement</h2>
+ 
+<p><strong>Example</strong> <br>
+ 
+<p>Display "Call the Doctor!" if the bad guy is an alien<br>
+ 
+var badGuy ="Alien" <br>
+if (badGuy === "Alien") {<br>
+    document.getElementById("demo").innerHTML = "Call the Doctor!";<br>
+}
+ 
+</p>
+<p><strong>The Code in Action</strong></p>
+ 
+<p>Display "Call the Doctor!" if the bad guy is an alien</p>
+ 
+<p id="demo">Call the Doctor!</p>
+ 
+<script>
+var badGuy ="Alien"
+if (badGuy === "Alien") {
+    document.getElementById("demo").innerHTML = "Call the Doctor!";
+}
+ 
+ 
+</script>
+ 
+<h1>Arrays</h1>
+<h1>Associative Arrays</h1>
+ 
+<h1>Loops</h1>
+<p>Loops run the same code over and over again each time resulting in different values. These are especially useful when
+working with Arrays.</p>
+<p>According to W3Schools.com, there are several different kinds of loops.</p>
+<p><strong>for - loops</strong> through a block of code a number of times <br>
+<strong>for/in - loops</strong> through the properties of an object<br>
+<strong>while - loops</strong> through a block of code while a specified condition is true<br>
+<strong>do/while - also loops</strong> through a block of code while a specified condition is true<br></p>
+ 
+<h2>The Doctor JS Loop</h2>
+ 
+<p id="demo1"></p>
+ 
+<script>
+var theDoctor = ["William Hartnell","Patrick Troughton","Jon Pertwee","Tom Baker","Peter Davison","Colin Baker","Sylvester McCoy","Paul McGann",
+"Christopher Eccleston", "David Tennant", "Matt Smith", "Peter Capaldi", "Jodie Whittaker"];
+var text = "";
+var i;
+for (i = 0; i < theDoctor.length; i++) {
+    text += theDoctor[i] + "<br>";
+}
+document.getElementById("demo1").innerHTML = text;
+</script>
+ 
+<h2>For Loops</h2>
+ 
+<p>For-Loops are comprised of three statements. The first statement is code that is executed before the loop or the code block starts.
+The second statement is in charge of defining the condition for running the code block or loop. The third statement starts each time the code block or loop
+has been executed.</p>
+<p><strong>Example</strong></p>
+<p><strong>for</strong> (statement 1; statement 2; statement 3) { <br>
+    code block to be executed<br>
+}</p>
+ 
+<h2>The Doctor JS Loop Omitting Statement 1</h2>
+ 
+<p>It is possible to skip the first statement in a For Loop if your values are set before the loop starts.</p>
+<p><strong>Example</strong></p>
+ 
+<p><strong>var</strong> theDoctor = ["William Hartnell","Patrick Troughton","Jon Pertwee","Tom Baker","Peter Davison",<br>
+"Colin Baker","Sylvester McCoy","Paul McGann","Christopher Eccleston", "David Tennant", "Matt Smith", "Peter Capaldi", "Jodie Whittaker"];<br>
+<br>
+<strong>var</strong> i = 4;<br>
+<strong>var len</strong>= theDoctor.length;<br>
+<strong>var text</strong> = "";<br>
+ 
+<strong>for</strong>(; i < len; i++) {<br>
+    text += theDoctor[i] + "< br>";
+}
+</p>
+<h3>The Code In Action</h3>
+<p id="demo2"></p>
+ 
+<script>
+var theDoctor = ["William Hartnell","Patrick Troughton","Jon Pertwee","Tom Baker","Peter Davison","Colin Baker","Sylvester McCoy","Paul McGann",
+"Christopher Eccleston", "David Tennant", "Matt Smith", "Peter Capaldi", "Jodie Whittaker"];
+var i = 4;
+var len = theDoctor.length;
+var text = "";
+ 
+for (; i < len; i++) {
+    text += theDoctor[i] + "<br>";
+}
+ 
+document.getElementById("demo2").innerHTML = text;
+</script>
+ 
+<p>Statement two could also be omitted. If statement two returns true, the loop repeats. If it returns false, the loops ends. In order to leave out statement two,
+a break must be included inside the loop. If not, the loop will repeat forever, which will crash the browser.</p>
+ 
+<h2>The Doctor JS Loop Omitting Statement 3</h2>
+<p>Statement three usually increases the value of the initial variable by a determined amount. It can handle negative increments as well as positive increments.
+It is also opptional if the value is incremented inside the loop.</p>
+ 
+<p><strong>Example</strong></p>
+ 
+<p><strong>var</strong>theDoctor = ["William Hartnell","Patrick Troughton","Jon Pertwee","Tom Baker","Peter Davison","Colin Baker","Sylvester McCoy","Paul McGann",
+"Christopher Eccleston", "David Tennant", "Matt Smith", "Peter Capaldi", "Jodie Whittaker"];<br>
+<br>
+ 
+<strong>var</strong> i = 0;<br>
+<strong>var len</strong> = theDoctor.length;<br>
+<strong>var text</strong> = "";<br>
+ 
+for (; i < len; ) { <br>
+    text += theDoctor[i] + "< br>";<br>
+    i++;<br>
+}
+</p>
+<h3>The Code In Action</h3>
+ 
+<p id="demo3"></p>
+ 
+<script>
+var theDoctor = ["William Hartnell","Patrick Troughton","Jon Pertwee","Tom Baker","Peter Davison","Colin Baker","Sylvester McCoy","Paul McGann",
+"Christopher Eccleston", "David Tennant", "Matt Smith", "Peter Capaldi", "Jodie Whittaker"];
+ 
+var i = 0;
+var len = theDoctor.length;
+var text = "";
+ 
+for (; i < len; ) {
+    text += theDoctor[i] + "<br>";
+    i++;
+}
+document.getElementById("demo3").innerHTML = text;
+</script>
+ 
+<h2>The For/In Loop</h2>
+ 
+<p>The for/in statment loops through the properties of an object.</p>
+ 
+ 
+<p><strong>Example</strong></p>
+ 
+<p><strong>var</strong> info = "";<br>
+<strong>var</strong> companion = {fname:"Amy", lname:"Pond", age:19, Doctor:11}; <br>
+<strong>var</strong>= x;<br>
+ 
+<strong>for</strong>(x in companion){<br>
+               info += companion[x] +"";<br>
+}
+</p>
+<h3>The Code In Action</h3>
+ 
+<p id="demo4"></p>
+ 
+<script>
+var info = "";
+var companion = {fname:"Amy", lname:"Pond", age:19, Doctor:11};
+var x;
+for (x in companion) {
+    info += companion[x] + " ";
+}
+document.getElementById("demo4").innerHTML = info;
+</script>
+ 
+<h2>While and Do/While Loop</h2>
+ 
+<p>While loops repeat a loop or block of code until a specified condition is no longer true. If the condition is false
+to start with, the loop will not be executed at all. </p>
+ 
+<p><strong>The following code block is told to increase the value of n by one but only while n is less than 20. Since it is a While loop,
+it checks to ensure the code is true before it executes it.</strong><p>
+ 
+<p id="demo5"></p>
+ 
+<script>
+var text = "";
+var n = 10;
+while (n < 20) {
+    text += "<br>The number is " + n;
+    n++;
+}
+document.getElementById("demo5").innerHTML = text;
+</script>
+ 
+ 
+<p>The Do/While loop is similar, but it execute the code first before checking to see if the condition is true. It then
+continues to repeat until the condition is false.</p>
+ 
+<p><strong>The code below is told to increase the value of c by 1 but only while c is less than 90. Since it is a Do loop, it
+executes the code first, and then checks to see if it is true. In this case, it is false, so the loop only runs once.</strong></p>
+ 
+<p id="demo6"></p>
+ 
+<script>
+var text = ""
+var c = 100;
+ 
+do {
+    text += "<br>The number is " + c;
+    c++;
+}
+while (c < 90); 
+ 
+document.getElementById("demo6").innerHTML = text;
+</script>
+ 
+<p><strong>Here we can see that a while loop is gathering from an array the names of the Doctor's companions.</strong></p>
+<p id="demo7"></p>
+ 
+<script>
+var companions = ["Sarah Jane Smith","Rose Tyler","Jack Harkness","Mickey Smith","Donna Noble","Martha Jones","Amy Pond","Rory Williams",
+"River Song", "Clara Oswald", "Matt Smith", "Bill Potts"];
+var i = 0;
+var text ="";
+while (companions[i]) {
+ 
+    text +="<br>The companion of the Doctor is "+ companions[i] +"<br>";
+    i++;
+}
+document.getElementById("demo7").innerHTML = text;
+</script>
+ 
+ 
+</body>
+</html>
