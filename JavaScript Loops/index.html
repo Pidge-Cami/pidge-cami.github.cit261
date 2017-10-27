@@ -20,6 +20,10 @@
       <h2>
       <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS3 Transitions</h2>
  
+<!DOCTYPE html>
+<html>
+<body>
+ 
 <h1>Variables</h1>
 <p>Variables store data values. They act very similar to the variables in Algebra. They act as containers
 that hold values. Variables are always defined with the keyword <strong>var</strong> followed by the vairable name.
@@ -68,31 +72,136 @@ is true.<br>
  
 <p><strong>Example</strong> <br>
  
-<p>Display "Call the Doctor!" if the bad guy is an alien<br>
+<p>Display "Call the Doctor!" if the enemy is an alien.<br>
  
-var badGuy ="Alien" <br>
-if (badGuy === "Alien") {<br>
+var enemy ="Alien" <br>
+if (enemy === "Alien") {<br>
     document.getElementById("demo").innerHTML = "Call the Doctor!";<br>
 }
+</p>
+<p><strong>The Code in Action</strong></p>
+ 
+<p>Display "Call the Doctor!" if the enemy is an alien</p>
+ 
+<p id="demoDoc">Call the Doctor!</p>
+ 
+<script>
+var enemy ="Alien"
+if (enemy === "Alien") {
+    document.getElementById("demoDoc").innerHTML = "Call the Doctor!";
+}
+</script>
+ 
+<h2>Else Statement</h2>
+ 
+<p><strong>Example</strong> <br>
+ 
+<p>Display "Call the Doctor!" if the enemy is an alien. Otherwise, display "Call the Police!"<br>
+ 
+var enemy ="Alien" <br>
+if (enemy === "Alien") {<br>
+    document.getElementById("demo").innerHTML = "Call the Doctor!";<br>
+}<br>
+else {<br>
+        document.getElementById("demo").innerHTML = "Call the Police!";<br>
+        }<br>
  
 </p>
 <p><strong>The Code in Action</strong></p>
  
-<p>Display "Call the Doctor!" if the bad guy is an alien</p>
- 
-<p id="demo">Call the Doctor!</p>
+<p id="demoHum">Call the Doctor!</p>
  
 <script>
-var badGuy ="Alien"
-if (badGuy === "Alien") {
-    document.getElementById("demo").innerHTML = "Call the Doctor!";
+var enemy ="Human"
+if (enemy === "Alien") {
+    document.getElementById("demoHum").innerHTML = "Call the Doctor!";
 }
+else {
+        document.getElementById("demoHum").innerHTML = "Call the Police!";
+        }
+</script>
+ 
+<h2>If/Else Statement</h2>
+ 
+<p><strong>Example</strong> <br>
+ 
+<p>Display "Call the Doctor!" if the enemy is an alien. If the Enemy is a Human, display "Call the Police." Otherwise, display "You've made the Doctor your enemy. Run!"<br>
+ 
+var enemy ="Doctor" <br>
+if (enemy === "Alien") {<br>
+    document.getElementById("demo").innerHTML = "Call the Doctor!";<br>
+}<br>
+else if (enemy === "Human") {<br>
+    document.getElementById("demo").innerHTML = "Call the Police!";<br>
+               }<br>
+else {<br>
+        document.getElementById("demo").innerHTML = "You've made the Doctor your enemy. Run!";<br>
+        }<br>           
+</p>
+<p><strong>The Code in Action</strong></p>
+ 
+<p id="demoRun">Call the Doctor!</p>
+ 
+<script>
+      
+var enemy ="Doctor"
+if (enemy === "Alien") {
+    document.getElementById("demoRun").innerHTML = "Call the Doctor!";
+}else if (enemy === "Human") {
+    document.getElementById("demoRun").innerHTML = "Call the Police!";
+}
+else {
+        document.getElementById("demoRun").innerHTML = "You've made the Doctor your enemy. Run!";
+        }    
+</script>             
+<h1>Arrays</h1>
+ 
+<h3>Aliens Seen in Dr. Who</h3>
+<p><strong>Example</strong></p>
+ 
+ 
+<p> var aliens = ["Dalek", " Sontaran", " Silurian"," Weeping Angel"," Cybermen"," Time Lord"," Slitheen"];<br>
+document.getElementById("demo").innerHTML = aliens;<br></p>
+ 
+<p>The code in action</p>
+<p id="demo"></p>
+ 
+<script>
+var aliens = ["Dalek", " Sontaran", " Silurian"," Weeping Angel"," Cybermen"," Time Lord"," Slitheen"];
+document.getElementById("demo").innerHTML = aliens;
+</script>
+ 
+<h2>JavaScript Arrays</h2>
+ 
+<p>The example below loops through an array.</p>
+ 
+<p>The doctor is played by <span id="doc"></span></p>
+ 
+<button onclick="regeneration()">Regenerate</button>
+ 
+ 
+<script>
+var docArray = [" William Hartnell", " Patrick Troughton", " Jon Pertwee", " Tom Baker", " Peter Davison", " Colin Baker", " Sylvester McCoy", " Paul McGann",
+" Christopher Eccleston", " David Tennant", " Matt Smith", " Peter Capaldi", "Jodie Whitaker"];
+var docIndex= 1;
+var doc = document.getElementById('doc');
+ 
+doc.innerHTML = docArray[0];
+ 
+function regeneration() {
+if (docIndex < docArray.length) {
+doc.innerHTML = docArray[docIndex];
+docIndex++;
+}
+};
  
  
 </script>
  
-<h1>Arrays</h1>
 <h1>Associative Arrays</h1>
+ 
+<p>Associative Arrays are arrays with named indexes. JavaScript does not support named indexes. For Javascript, arrays
+always use numbered indexes. Instead, in Java, objects use named indexes.</p>
  
 <h1>Loops</h1>
 <p>Loops run the same code over and over again each time resulting in different values. These are especially useful when
