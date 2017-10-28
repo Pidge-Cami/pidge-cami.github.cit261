@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript Objects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JavaScript Objects</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+      <h2>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>JavaScript Objects</h2>
+
+
+ 
+<p>Javascript Objects are variables that can store many values. A wizard, for example, is an object and it has properties.</p>
+		  <p><strong>Properties</strong> can be things such as name, school, age, or gender and are the named values in JavaScript objects. The values are written as name:value pairs. This means that the name of the variable comes first followed by the value and are seperated by a colon. <br>
+<strong>For example;</strong> name:"Harry Potter".<br>These pairs together are called <strong>Properties</strong>. All wizards have the same properties, but the values may differ. All wizards also have methods, but they may be performed at different times. Methods are actions that can be performed on objects and are stored in properties as function definitions.</p>
+		 
+              <table>
+                <tr>
+                <th style="width:370px">
+                Object
+                </th>
+                <th>
+                Properties
+                </th>
+                <th>
+                Methods
+                </th>
+                </tr>
+                <tr>
+                <td>
+                <img src="images/harrypotter.png" style="width:250px">
+                </td>
+                <td>
+                <br>wizard.name = HarryPotter<br><br>
+                wizard.school = Hogwarts<br><br>
+                wizard.age = 12<br><br>
+                wizard.gendar = male
+                </td>
+                <td>
+                <br>wizard.doHomework()<br><br>
+                wizard.sleep()<br><br>
+                wizard.eat()<br><br>
+				wizard.dual()</td>
+                </tr>
+		</table>
+				  
+ 
+<h3>Creating a JavaScript Object.</h3>
+
+		<p><strong>Here is an example;</strong></p>
+		
+<pre><code data-language="javascript">var wizard = {name:"Harry Potter", school:"Hogwarts", age:"12"};<br>
+document.getElementById("magic").innerHTML = wizard.name + " attends " + wizard.school <br>
++ " who is " + wizard.gender + " and is " + wizard.age + " years old.";<br>
+</code></pre>
+		<h3>The Code in Action</h3>
+ 
+<p id="magic"></p>
+ 
+<script>
+var wizard = {name:"Harry Potter", school:"Hogwarts", gender:"Male", age:"12"};
+document.getElementById("magic").innerHTML =  wizard.name + " is a wizard who currently attends " + wizard.school + " who is " + wizard.gender + " and is " + wizard.age + " years old.";
+</script>
+ 
+  
+	  <h2>Object Prototypes</h2>
+
+         
+        <p>There are several built-in prototype objects in JavaScript that can be used to create objects. Examples:</p> 
+			 <table>
+                <tr>
+                <th style="width: 125px">
+                Object Name
+                </th>
+                <th style="width: 125px">
+                Purpose
+				</th>	
+                <tr>
+                <td>
+                Arrays<br><br>
+				Boolean<br><br>
+				Date<br><br>
+				Number<br><br>
+				String
+                </td>
+                <td>
+                Stores multiple values as a single variable<br><br>
+                Stores either true or false<br><br>
+                Stores Date and Time<br><br>
+                Stores numeric value<br><br>
+				Stores Text
+                </td>
+              </table>
+					
+
+		<h2> Creating Objects</h2>
+		
+		<p>To create an object in JavaScript, it must be delcared. The keyword <code>var</code> is used to declare an object, followed by the object name.</p>
+		 <pre><code data-language="javascript">var objectname</code></pre>
+		 <p>Another way would be to use an "object type" and create many objects of one type. This is done by using a constructor function:<p>
+		 
+		 <pre><code data-language="javascript">function wizard(name, school, age, gender) {
+  this.name = name;
+  this.school = school;
+  this.age = age;
+  this.gender = gender;
+  }</code></pre>
+		 
+		 <p> You can create an object using the the keyword <code>new</code> using that constructor:
+		 <pre><code data-language="javascript">var objectname = new FunctionName
+var Ron = new wizard())</code></pre>
+
+	<h2>Example</h2>
+	<p>This example will use a constructor function to create a new wizard object. 
+	Input from users can be used to create the new object.</p>
+	
+			<br> <pre><code data-language="javascript">function createWizard() {
+
+                   
+var wizardName = document.getElementById("wizardName").value;
+var wizardAge = document.getElementById("wizardAge").value;
+var wizardSchool = document.getElementById("wizardSchool").value;
+var wizardGender = document.getElementById("wizardGender").value;
+
+					 
+function wizard(name, school, age, gender) {
+	this.name = name;
+	this.school = school;
+	this.age = age;
+	this.gender = gender;
+}
+
+
+var newWizard = new wizard(wizardName, wizardSchool, wizardAge, wizardGender);
+
+			
+document.getElementById("wizardOutput").innerHTML = wizardName + " is a wizard that goes to "
+ wizardSchool + " who is " + wizardGender + " and is " + wizardAge + " years old.";
+}</code></pre>	
+	
+		Name<br> <input type="text" id="wizardName"><br>
+		School<br> <input type="test" id="wizardSchool"><br>
+        Age <br> <input type="int" id="wizardAge"><br>
+		Gender<br> <input type="text" id="wizardGender"><br><br>
+       <button onclick="createWizard()">New Wizard</button>
+       <div id="wizardOutput"></div>
+
+
+
+<script type="text/javascript">
+            function createWizard() {
+                    
+                    var wizardName = document.getElementById("wizardName").value;
+					var wizardSchool = document.getElementById("wizardSchool").value;
+					var wizardAge = document.getElementById("wizardAge").value;
+					var wizardGender = document.getElementById("wizardGender").value;
+					 
+					function wizard(name, school, age, gender) {
+					this.name = name;
+					this.school = school;
+					this.age = age;
+					this.gender = gender;
+}
+
+					 var newWizard = new wizard(wizardName, wizardSchool, wizardAge, wizardGender);
+					
+					document.getElementById("wizardOutput").innerHTML = wizardName + " is a wizard that goes to " + wizardSchool + " who is " + wizardGender + " and is " + wizardAge + " years old.";
+            }
+        </script>
+
+      <footer class="site-footer">
+
+        <h6><span class="site-footer-credits"><a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span></h6>
+      </footer>
+
+    </section>
+
+  </body>
+</html>
