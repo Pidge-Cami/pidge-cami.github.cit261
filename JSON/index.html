@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JSON and AJAX Requestion a JSON File</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+      <h2>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSON</h2>
+
+
+ 
+<p><strong>JSON</strong> Stands for JavaScript Object Notation. It is a syntax for storing and exchanging data and is written with JavaScript object notation. It is a lightweight data-interchange format and it is "self-describing" which makes it easy to understand. It uses JavaScript synax, but it is language independent because the format is text only. Because of this, it can be read and used as a data format using any language.</p>
+	    
+<p>JSON allows us to work with data as JavaScript objects, with no complicated parsing and translations. Data that is exchanged between a browser and a server can only be text. Any JavaScript object can be converted into JSON, which is text and can be sent to a server. This works in the reverse as well. Any JSON received from the server can be converted into JavaScript Objects.  </p>
+
+	    
+<p>Data has to be in a certain format when stored. No matter where data is stored, <strong>text</strong> is always a legal format. This is why JSON is so useful. It makes it possible to store JavaScript objects anywhere in the form of text and it can easily be sent to and from a server.<br> 
+<br>
+<strong>JSON.parse()</strong> is a built in function in JavaScript that converts a string, written in JSON format, into native JavaScript objects. This allows you to receive data from a server, in JSON format and use it like any other JavaScript object. </p>
+	
+	    
+<h3>Convert a string written in JSON format, into a JavaScript object.</h3>
+<p><strong>Here is an example;</strong></p>
+<pre><code data-language="javascript">var myJSON = '{ "name":" Rand alThor", "nationality":" Andoran", "birthplace":"Dragonmount" }';
+
+var myObj = JSON.parse(myJSON);
+
+document.getElementById("dragon").innerHTML =  myObj.name + " is " + myObj.nationality + 
+" and was born " + myObj.birthplace;
+</code></pre>
+		<h3>The Code in Action</h3>
+    
+	    
+
+<p id="dragon"></p>
+
+<script>
+
+var myJSON = '{ "name":" Rand al\'Thor", "nationality":" Andoran", "birthplace":"on the side of Dragonmount" }';
+var myObj = JSON.parse(myJSON);
+document.getElementById("dragon").innerHTML = myObj.name + " is " + myObj.nationality + " and was born " + myObj.birthplace;
+
+</script> 
+
+<h3>Stringify a JavaScript Object</h3>	    
+	    
+<p>JSON is often used to exchange data to and from a web server. In order to send data to a web server, the data has to be a string. To convert a JavaScript object into a string, we need the function <strong>JSON.stringify()</strong>. </p>
+	    
+<pre><code data-language="javascript">var amyrlinSeat ={"name":" Egwene al'Vere", "nationality":" Andoran", "birthplace":"The Two Rivers"};
+var myJSON = JSON.stringify(amyrlinSeat);<br>
+document.getElementById("Amyrlin").innerHTML = myJSON;</code></pre>
+	    
+<p id="Amyrlin"></p>
+
+<script>
+
+var amyrlinSeat ={"name":"Egwene al'Vere", "nationality":"Andoran", "birthplace":"The Two Rivers"};
+var myJSON = JSON.stringify(amyrlinSeat);
+document.getElementById("Amyrlin").innerHTML = myJSON;
+
+</script>
+		 
+<h3>JavaScript arrays can also be stringified using the <strong>JSON.stringify()</strong> function.</h3>
+	    
+<pre><code data-language="javascript">var taveren = [ "Rand al'Thor", "Perrin Aybara", "Matrim Cauthon"];<br>
+var myJSON = JSON.stringify(taveren);<br>
+document.getElementById("Taveren").innerHTML = myJSON;</code></pre>
+	    
+<p id="Taveren"></p>
+
+<script>
+
+var taveren = [ "Rand al'Thor", "Perrin Aybara", "Matrim Cauthon"];
+var myJSON = JSON.stringify(taveren);
+document.getElementById("Taveren").innerHTML = myJSON;
+
+</script>	
+	    
+<h3>Not Allowed With JSON.stringify </h3>
+
+<p>In JSON, date objects and functions are not allowed. The JSON.stringify() function will convert any dates into strings. Similarly, it will remove any functions from a JavaScript 
+object, both the key and the value. </p>	
+	    
+<h3>Date Example</h3>	    
+	    
+<pre><code data-language="javascript">var obj = { "name":"Brandon Sanderson", "today":new Date(), "city":"Salt Lake City"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("dateDemo").innerHTML = myJSON;</code></pre>	    
+	    
+<p id="dateDemo"></p>
+
+<script>
+
+var obj = { "name":"Brandon Sanderson", "today":new Date(), "city":"Salt Lake City"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("dateDemo").innerHTML = myJSON;
+
+</script>
+<p> The string can be converted back to a date at the receiver.</p>	    
+	    
+<h3>Function Example</h3>	
+
+<pre><code data-language="javascript">	    
+	    
+<p id="demoFun"></p>var obj = { "name":"Perrin Aybara", "age":function () {return 30;}, "village":"The Two Rivers"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("demoFun").innerHTML = myJSON;</code></pre>
+
+<script>
+
+var obj = { "name":"Perrin Aybara", "age":function () {return 30;}, "village":"The Two Rivers"};
+var myJSON = JSON.stringify(obj);
+document.getElementById("demoFun").innerHTML = myJSON;
+
+</script>	    
+
+<p>But if we convert the function to a string before running the JSON.stringify() function, it turns out like this;</p>	    
+	    
+<pre><code data-language="javascript">var obj = { "name":"Perrin Aybara", "age":function () {return 30;}, "village":"The Two Rivers"};
+obj.age = obj.age.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("funDemo").innerHTML = myJSON;</code></pre>
+
+<p id="funDemo"></p>	    
+	    
+<script>
+	
+var obj = { "name":"Perrin Aybara", "age":function () {return 30;}, "village":"The Two Rivers"};
+obj.age = obj.age.toString();
+var myJSON = JSON.stringify(obj);
+document.getElementById("funDemo").innerHTML = myJSON;
+
+</script>
+<br>	    
+<h2>Using XMLHTTPRequest to Consume a JSON Web Service</h2>
+	    
+	    
+<p>A common use of JSON is to read data from a web server, and display the data in a web page.</p>	
+	    
+<h3>Heros of The Horn</h3>	
+<div id="heros">Heros Of the Horn</div>	  
+	    
+    
+<script>	    
+	    
+var hornHeros = [
+{
+"display": "Jain Charin",
+"url": "http://wot.wikia.com/wiki/Jain_Charin"
+},
+{
+"display": "Birgitte Silverbow",
+"url": "http://wot.wikia.com/wiki/Birgitte_Silverbow"
+},
+{
+"display": "Gaidal Cain",
+"url": "http://wot.wikia.com/wiki/Gaidal_Cain"
+},
+{
+"display": "Rogosh Eagle-Eye",
+"url": "http://wot.wikia.com/wiki/Rogosh_Eagle-Eye"
+},
+{
+"display": "Shivan the Hunter",
+"url": "http://wot.wikia.com/wiki/Shivan_the_Hunter"
+},
+{
+"display": "Amaresur",
+"url": "http://wot.wikia.com/wiki/Amaresu"
+}	
+]	    
+	    
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+    }
+    document.getElementById("heros").innerHTML = out;
+}	    
+	    
+myFunction(hornHeros);
+	
+var xmlhttp = new XMLHttpRequest();
+var url = "HerosOfTheHorn.txt";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    var myArr = JSON.parse(this.responseText);
+    myFunction(myArr);
+    }
+};
+
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+
+ </script>	    
+	
+    </section>
+
+  </body>
+</html>

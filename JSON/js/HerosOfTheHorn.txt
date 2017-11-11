@@ -1,0 +1,26 @@
+[
+{
+"display": "Jain Charin",
+"url": "http://wot.wikia.com/wiki/Jain_Charin"
+},
+{
+"display": "Birgitte Silverbow",
+"url": "http://wot.wikia.com/wiki/Birgitte_Silverbow"
+},
+{
+"display": "Gaidal Cain",
+"url": "http://wot.wikia.com/wiki/Gaidal_Cain"
+},
+{
+"display": "Rogosh Eagle-Eye",
+"url": "http://wot.wikia.com/wiki/Rogosh_Eagle-Eye"
+},
+{
+"display": "Shivan the Hunter",
+"url": "http://wot.wikia.com/wiki/Shivan_the_Hunter"
+},
+{
+"display": "Amaresur",
+"url": "http://wot.wikia.com/wiki/Amaresu"
+}	
+]	
