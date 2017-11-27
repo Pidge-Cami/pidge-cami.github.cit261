@@ -145,70 +145,136 @@ document.getElementById("funDemo").innerHTML = myJSON;
 
 </script>
 <br>	    
-<h2>Using XMLHTTPRequest to Consume a JSON Web Service</h2>
+<h2>AJAX</h2>
+	    <p>AJAX stands for <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML</p>
+	    <li>AJAX is not a programming language. AJAX uses a combination of:</li>
+	    <li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+	    <li>JavaScript and HTML DOM (to display or use the data) </li>
 	    
-	    
-<p>A common use of JSON is to read data from a web server, and display the data in a web page.</p>	
+	    <p> With AJAX you can update a web page without reloading the page. After the page is loaded, you can also request data from a serverand receive data from a server. AJAX can also send data to a server.</p>
+	    <p>Information can be sent with JSON, XML, HTML and text files. Data is requested by creating a new object with the <strong>XMLHttpsRequest()</strong>function.</p>	
 	    
 <h3>Heros of The Horn</h3>	
-<div id="heros">Heros Of the Horn</div>	  
 	    
+	    <pre><code data-language="javascript"> function heros() {
+//creates a variable using the XMLHttpRequest
+    var xmlhttp = new XMLHttpRequest();
+//Checks to make sure the data has loaded
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+//When loaded, prints out the data
+            document.getElementById("horn").innerHTML =
+            this.responseText;
+        }
+    };
+//opens the text file with the data
+    xmlhttp.open("GET","hornHeros.txt", true);
+    xmlhttp.send();
+}</code></pre>
+	    
+    <div id="horn">
+
+
+        <button type="button" onclick="heros()">Request Text</button></div>
+
+    <script>
+        function heros() {
+           //creates a variable using the XMLHttpRequest
+            var xmlhttp = new XMLHttpRequest();
+            //Checks to make sure the data has loaded
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+             //When loaded, prints out the data
+                    document.getElementById("horn").innerHTML =
+                        this.responseText;
+                }
+            };
+            //opens the text file with the data
+            xmlhttp.open("GET", "hornHeros.txt", true);
+            xmlhttp.send();
+        }
+    </script>    
+	    
+	<h2>Using JSON Files</h2>
+
+    <p>You can also request JSON files in order to asynchronously updade your webpage with no refreshing</p>
+    <p>A framework called JQUERY is often used to make this process easier but in this case I will show an example
+    with base AJAX</p>
+
+    <pre><code data-language="javascript">var characters = document.getElementById("aesSedai");
+       btn.addEventListener("click", function() {
+           var charRequest = new XMLHttpRequest();
+           charRequest.open('GET', 'aesSedai.json');
+           charRequest.onload = function() {
+               if (charRequest.status >= 200 && charRequest.status < 400) {
+                   var charInfo = JSON.parse(charRequest.responseText);
+                   renderHTML(charInfo);
+        } else {
+            console.log("We connected to the server, but it returned an error.");
+        }
+    };
+
+    ourRequest.send();
+});
+
+
+function renderHTML(data) {
+    var htmlString = "";
+
+    for (i = 0; i < data.length; i++) {
+        htmlString += "p"  + data[i].nm + " was an Aes Sedai of the "
+		   + data[i].ajah + " Ajah and her place of origin was " + data[i].org + ". 
+		   She was bonded to " + data[i].warder + " as her warder.";
+           }
+
+           characters.insertAdjacentHTML('beforeend', htmlString);</code></pre>
+	    
+    <button id="btn">List of Aes Sedai of the Wheel of Time</button>
+    <div id="aesSedai"></div>
+
+   <script>
+
+       var characters = document.getElementById("aesSedai");
+       btn.addEventListener("click", function() {
+           var charRequest = new XMLHttpRequest();
+           charRequest.open('GET', 'aesSedai.json');
+           charRequest.onload = function() {
+               if (charRequest.status >= 200 && charRequest.status < 400) {
+                   var charInfo = JSON.parse(charRequest.responseText);
+                   renderHTML(charInfo);
+               } else {
+                   console.log("We connected to the server, but it returned an error.");
+                        }
+           };
+            charRequest.send();
+        });
+
+
+       function renderHTML(data) {
+           var htmlString = "";
+
+           for (i = 0; i < data.length; i++) {
+               htmlString += "<p>" + data[i].nm + " was an Aes Sedai of the " + data[i].ajah + " Ajah and her place of origin was " + data[i].org + ". She was bonded to " + data[i].warder + " as her warder.";
+
+
+           }
+
+           characters.insertAdjacentHTML('beforeend', htmlString);
+       }
+    </script>
     
-<script>	    
 	    
-var hornHeros = [
-{
-"display": "Jain Charin",
-"url": "http://wot.wikia.com/wiki/Jain_Charin"
-},
-{
-"display": "Birgitte Silverbow",
-"url": "http://wot.wikia.com/wiki/Birgitte_Silverbow"
-},
-{
-"display": "Gaidal Cain",
-"url": "http://wot.wikia.com/wiki/Gaidal_Cain"
-},
-{
-"display": "Rogosh Eagle-Eye",
-"url": "http://wot.wikia.com/wiki/Rogosh_Eagle-Eye"
-},
-{
-"display": "Shivan the Hunter",
-"url": "http://wot.wikia.com/wiki/Shivan_the_Hunter"
-},
-{
-"display": "Amaresur",
-"url": "http://wot.wikia.com/wiki/Amaresu"
-}	
-]	    
 	    
-function myFunction(arr) {
-    var out = "";
-    var i;
-    for(i = 0; i < arr.length; i++) {
-        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
-    }
-    document.getElementById("heros").innerHTML = out;
-}	    
 	    
-myFunction(hornHeros);
-	
-var xmlhttp = new XMLHttpRequest();
-var url = "HerosOfTheHorn.txt";
-
-xmlhttp.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-    var myArr = JSON.parse(this.responseText);
-    myFunction(myArr);
-    }
-};
-
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-
- </script>	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	
     </section>
 

@@ -1,0 +1,50 @@
+[  
+  {
+    "nm": "Moiraine Damodred",
+    "ajah": "Blue",
+    "warder": "Lan",
+    "org": "Cairhien"
+  },
+  {
+    "nm": "Verin Mathwin",
+    "ajah": "Brown",
+    "warder": "no one",
+    "org": "Far Madding"
+  },
+  {
+    "nm": "Myrelle",
+    "ajah": "Green",
+    "warder": "Nuhel Dromand and Avar Hachami ",
+    "org": "unknown"
+  },
+  {
+    "nm": "Berisha Terakuni",
+    "ajah": "Gray",
+    "warder": "no one",
+    "org": "Arafel"
+  },
+  {
+    "nm": "Elaida do Avriny a'Roihan",
+    "ajah": "Red",
+    "warder": "None",
+    "org": "Andor"
+  },
+  {
+    "nm": "Tesan",
+    "ajah": "White",
+    "warder": "no one",
+    "org": "unkown"
+  },
+  {
+    "nm": "Samitsu Tamagowa",
+    "ajah": "Yellow",
+    "warder": "Roshan",
+    "org": "Arafel"
+  },
+  {
+    "nm": "Galina Casban",
+    "ajah": "Black",
+    "warder": "no one",
+    "org": "unknown"
+  }
+ ]
