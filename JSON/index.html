@@ -204,7 +204,7 @@ document.getElementById("funDemo").innerHTML = myJSON;
     <pre><code data-language="javascript">var characters = document.getElementById("aesSedai");
        btn.addEventListener("click", function() {
            var charRequest = new XMLHttpRequest();
-           charRequest.open('GET', 'aesSedai.json');
+           charRequest.open('GET', 'https://pidge-cami.github.io/JSON/aesSedai.json');
            charRequest.onload = function() {
                if (charRequest.status >= 200 && charRequest.status < 400) {
                    var charInfo = JSON.parse(charRequest.responseText);
@@ -237,7 +237,7 @@ function renderHTML(data) {
        var characters = document.getElementById("aesSedai");
        btn.addEventListener("click", function() {
            var charRequest = new XMLHttpRequest();
-           charRequest.open('GET', 'aesSedai.json');
+           charRequest.open('GET', 'https://pidge-cami.github.io/JSON/aesSedai.json');
            charRequest.onload = function() {
                if (charRequest.status >= 200 && charRequest.status < 400) {
                    var charInfo = JSON.parse(charRequest.responseText);
