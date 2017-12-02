@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>DOM Manipulation</title>
+    <title>HTML5 Tags - Video, Audio, and Canvas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#549999">
     <link rel="stylesheet" href="css/normalize.css">
@@ -11,124 +11,195 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Manipulating the DOM</h1>
+      <h1 class="project-name">HTML5 Tags - Video, Audio, and Canvas</h1>
       <h2 class="project-tagline">CIT 261
 </h2>
     </section>
 
     <section class="main-content">
-      <h1>
-      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>The DOM</h1>
-
-      <p>The DOM or the Document Object Model is an object oriented model of a web page's logical structure.</p>
-	  <p>The DOM of an HTML document can be shown in a tree structure. The tree is made up of HTML elements that are interrelated nodes.</p>
-
       <h2>
-      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nodes</h2>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video Tags</h2>
+	    
+	    <p>HTML5 has several new useful tags. The first we will look at is the <strong>video</strong> tag. The video tag allows you to embed a video into your webpage by specifying the format and source of the video. The tag also allows you to support several video types. The browser will go through each video format until it finds one that works with the current device. If none of the formats are compatable, then you can have the browser display an error message. Any text between the begining and ending video tags will be displayed in browsers that do not support the element if you should chose not use an error message.</p>
 
-      <blockquote>
-		  <p>Everything in an HTML DOM is a node. There are several different Node types such as:</p>
-      <ul>- Document node<br>
-		  - Element nodes<br>
-		  - Attribute nodes<br>
-		  - Text inside HTML elements are text nodes<br>
-		  - Comments nodes
-</ul>
-		  <p>Each node can have a child node. Nodes on the same level are called sibling nodes.</p>
-      </blockquote>
-		
-		      <h3>Heiarchy of a Nodes</h3>
 
-      <p><img src="images/tree.JPG" style="max-width:100%;"></p>
-      
-      <h6>
-      <a id="user-content-header-6" class="anchor" href="#header-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Header 6</h6>
+	    <p>There are several opptional attributes that can be used with the <strong>video</strong> tag.</p>
+              <table>
+                <tr>
+                <th style="width:370px">
+                Attribute
+                </th>
+                <th>
+                Value
+                </th>
+                <th>
+                Description
+                </th>
+                </tr>
+<tr>
+	<td>autoplay</td>
+  	<td>autoplay</td>
+  	<td>Specifies that the video will start playing as soon as it is ready</td>
+</tr>
+<tr>
+	<td>controls</td>
+  	<td>controls</td>
+  	<td>Specifies that video controls should be displayed (such as a play/pause button etc).</td>
+</tr>
+<tr>
+	<td>height</td>
+  	<td>pixels</td>
+  	<td>Sets the height of the video player</td>
+</tr>
+<tr>
+	<td>loop</td>
+  	<td>loop</td>
+  	<td>Specifies that the video will start over again, every time it is finished</td>
+</tr>			  
+<tr>
+	<td>muted</td>
+  	<td>muted</td>
+  	<td>Specifies that the audio output of the video should be muted</td>
+</tr>					  
 
-      <table>
-      <thead>
-      <tr>
-      <th>Method</th>
-      <th>Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>document.createElement(element)</td>
-      <td>Create an HTML element</td>
-      </tr>
-      <tr>
-      <td>document.removeChild(element)</td>
-      <td>Remove an HTML elementr</td>
-      </tr>
-      <tr>
-      <td>document.appendChild(element)</td>
-      <td>Add an HTML element</td>
-      </tr>
-	  <tr>
-      <td>document.replaceChild(element)</td>
-      <td>Replace an HTML element</td>
-      </tr>  
-      </tbody>
-      </table>
-		
-	  <h3>
-      <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>createElement()</h3>
-		<p>	  
-	  First, we would idendify the element that we wanted to add too. In this case, we will say we have a div element labeled "main" with two paragraphs in them labeled "first" and "second" that look like this.</p>
-		
-		<pre><code>
-		This is the first paragraph.
-		This is the second paragraph.
-		</code></pre>
-			
-			
-		<p>We can then execute the following code.</p> 
-	 
-      <pre><code>
-		var newPara = document.createElement("p");
-		var node = document.createTextNode("This is a new paragraph.");
-		newPara.appendChild(node);
+<tr>
+	<td>poster</td>
+  	<td>URL</td>
+  	<td>Specifies an image to be shown while the video is downloading, or until the user hits the play button</td>
+</tr>				  
 
-		var element = document.getElementById("main");
-		var child = document.getElementById("first");
-		element.insertBefore(newPara,child);
-	  </code></pre>
+<tr>
+	<td>preload</td>
+  	<td>auto<br>
+	metadata<br>
+	none<br>
+	</td>
+  	<td>Specifies if and how the author thinks the video should be loaded when the page loads</td>
+</tr>				  
 	
-		<p> And get the following result;</p>
-		<pre><code>
-		This is a new paragraph.
-		This is the first paragraph.
-		This is the second paragraph.
-		</code></pre>
-		
-		
-			  <p>But what if we decide we want to remove an element? It is just as easy. First, we would idendify the element that we wanted to remove from. In this case, we will say we have a div element labeled "main" with three paragraphs in them labeled "first" "second"and "third" that look like this.</p>
-		
-		<pre><code>
-		We start with a paragraph like this.
-		And we have another one like this.
-		This is the paragraph we want to get rid of.
-		</code></pre>
-			
-			
-		<p>We can then execute the following code.</p> 
-	 
-      <pre><code>
-
-		var parent = document.getElementById("main");
-		var child = document.getElementById("third");
-		parent.removeChild(third);
-	  </code></pre>
+<tr>
+	<td>src</td>
+  	<td>URL</td>
+  	<td>Specifies the URL of the video file</td>
+</tr>				  
 	
-		<p> And get the following result;</p>
-		<pre><code>
-		This is a new paragraph.
-		This is the first paragraph.
-		This is the second paragraph.
-		</code></pre>
-		
-		
+<tr>
+	<td>width</td>
+  	<td>pixels</td>
+  	<td>Sets the width of the video player</td>
+</tr>				  
+			  
+	    </table>
+	    
+	    <h3>Code Example</h3>
+	    
+	    
+ <pre><code data-language="html">
+&lt;video width="100%" height="auto" controls&gt;
+    &lt;source src="video/creepySquirrel.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+            </code></pre>	
+	    
+	    <h3>Video of a clueless bunny and a creepy squirrel.</h3>
+	    
+<video width="100%" height="auto" controls>
+    <source src="video/creepySquirrel.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+          
+	    
+<h2>Audio Tag</h2>	
+	    
+<p>The <strong>audio</strong> tag works the same way as the <strong>video</strong> tag. See the code below. </p>    
+	     <pre><code data-language="html">
+&lt;audio controls=""&gt;
+    &lt;source src="audio/OceanWaves.mp3" type="audio/mpeg"&gt;
+    Your browser does not support this audio file.
+&lt;/audio&gt;
+            </code></pre>	
+	   <h3>Ocean Waves</h3> 
+<audio controls="">
+    <source src="audio/OceanWaves.mp3" type="audio/mpeg">
+    Your browser does not support this audio file.
+</audio>	    
+	    
+	    
+	    <h2>Canvas Tag</h2>
+	    
+<p>The <strong>canvas</strong> tag allows you to draw graphics on a webpage with scripting (usually JavaScript). This element is only a container for graphics. A script must be used to actually draw the graphics.
+Canvas has several methods for drawing paths, boxes, circles, text, and adding images. Canvas can be animated, interactive, and can also be used in games.</p>
+	    
+	    
+    <script>
+        function draw(x,y){
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+		var ntd = canvas.getContext('2d');  
+		var btw = canvas.getContext('2d'); 
+		var mtx = canvas.getContext('2d');  
+            ctx.save();
+            ctx.clearRect(0,0,550,100);
+            ctx.fillStyle = "rgba(79,225,250,1)";
+            ctx.fillRect(10, x, 80, 100);
+            ctx.restore();
+            ntd.fillStyle = "rgba(79,250,225,1)";
+            ntd.fillRect(150, 20, 100, x);
+            ntd.restore();
+		btw.save();  
+            btw.fillStyle = "rgba(50,220,235,1)";
+            btw.fillRect(275, 20, x, 75);
+            btw.restore(); 
+		mtx.beginPath();
+		mtx.arc(95,50,40,0,2*Math.PI);
+		mtx.stroke();  
+            x += 2;
+            var loopTimer = setTimeout('draw('+x+','+y+')',20);
+        }
+    </script>
 
+
+
+
+    <canvas id="canvas" width="550" height="100" style="border:1px solid"></canvas><br>
+    <button onclick="draw(0,0)">Use Canvas</button>
+
+
+    <h4>Code Example</h4>
+
+<pre><code data-language="html">function draw(x,y){
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+		var ntd = canvas.getContext('2d');  
+		var btw = canvas.getContext('2d');   
+            ctx.save();
+            ctx.clearRect(0,0,550,100);
+            ctx.fillStyle = "rgba(79,225,250,1)";
+            ctx.fillRect(10, x, 80, 100);
+            ctx.restore();
+            ntd.fillStyle = "rgba(79,250,225,1)";
+            ntd.fillRect(150, 20, 100, x);
+            ntd.restore();
+		btw.save();  
+            btw.fillStyle = "rgba(50,220,235,1)";
+            btw.fillRect(275, 20, x, 75);
+            btw.restore(); 
+		mtx.beginPath();
+		mtx.arc(95,50,40,0,2*Math.PI);
+		mtx.stroke();  
+            x += 2;
+            var loopTimer = setTimeout('draw('+x+','+y+')',20);
+        }
+</code> </pre>	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
     </section>
 
   </body>
