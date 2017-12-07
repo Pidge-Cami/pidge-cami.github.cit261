@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box; }
+
+		
+div.redPaddle {
+	width: 200px;
+	height: 250px;
+	background: blue;
+	color: azure;
+	font-size: 1em;
+	-webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, transform 2s, background 2s, font-size 2s, color 2s; }
+
+div.redPaddle:hover {
+    width: 350px;
+	background: purple;	
+	font-size: 3em;
+	color: darkgray;
+	transform: rotate(360deg);
+	position: relative;
+	animation-name: example1;
+    animation-duration: 4s;
+    -webkit-animation-name: example1; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    
+				}
+/*@keyframes example1 {
+    0%   {left:0px; top:0px;}
+    25%  {left:200px; top:0px;}
+    50%  {left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+    100% {left:0px; top:0px;}
+    }
+
+-webkit-@keyframes example1 {
+    0%   {left:0px; top:0px;}
+    25%  {left:200px; top:0px;}
+    50%  {left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+	100% {left:0px; top:0px;}
+	}
+
+
+
+div.anim1 {
+	width: 200px;
+	height: 150px;
+	background: blue;
+	color: azure;
+	font-size: 1em;
+     	position: absoulute;
+      top: 100px;
+      left:-400px;
+      animation-name: example2;
+      animation-duration: 4s;
+
+}
+	
+div.anim1 {
+  animation-name: example2;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: none; 
+}
+
+
+@keyframes example2 {
+  0% {
+    transform: scale(.3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: yellow;
+  }
+}
+
+-webkit-@keyframes example2 {
+  0% {
+    transform: scale(.3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: yellow;
+  }
+}*/
+div.animPaddle  {
+	width: 200px;
+	height: 150px;
+	background: blue;
+	color: azure;
+	font-size: 1em;
+     	position: absoulute;
+      top: 100px;
+      left:-400px;
+      animation-name: paddle;
+      animation-duration: 4s;
+
+}
+	
+div.animPaddle {
+  animation-name: paddle;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: none; 
+}
+
+
+@keyframes example3 {
+  0% {
+    transform: scale(.3);
+    background-color: mediumvioletred;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: mediumpurple;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: blueviolet;
+  }
+}
+
+-webkit-@keyframes example3 {
+  0% {
+    transform: scale(.3);
+    background-color: mediumvioletred;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: mediumpurple;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: blueviolet;
+  }
+}
