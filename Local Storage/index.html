@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Local Storage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Local Storage</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+      <h2>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local Storage</h2>
+	    
+<p>The <strong>localStorage</strong> object is used to store data locally within a browser. There is no expiration date for the data. If the browser is closed the date is not deleted, but stored so it is available the next day or even the next year. The storage limit (at least 5MB) is much greater than cookies, and the information is never transferred to the server. All web storage is per orignin, which means per domain and protocol. All pages can store and access the same data if they are from the same origin. </p>
+	    
+	    
+	    
+	    
+	     <h2>Store and Re-Load data</h2>
+
+    <p>Enter your favorite book and then click save. Refresh the browser, and then click on Re-Load.</p>
+
+
+    <input type="text" name="bookData" id="bookData" ><br>
+    <button type="button" onclick="saveData()">Save</button>
+    <br>
+
+    <button type="button" onclick="loadStoredValues()">Re-Load</button><br>
+
+    <script>
+        function saveData() {
+            var book = document.getElementById("bookData").value;
+            console.log("Saving book: " + book);
+            localStorage.setItem("data", book);
+
+    }
+
+        function loadStoredValues() {
+            document.getElementById("bookData").value = localStorage.getItem("data");
+        }
+    </script>
+<br>
+
+<pre><code data-language="javascript">
+    function saveData(inputName) {
+    var companion = document.getElementById("companionData").value;
+    localStorage.setItem("data", companion);
+    }
+    
+    function loadStoredValues() {
+    document.getElementById("companionData").value = localStorage.getItem("data");
+    }
+    
+</code></pre>
+	    
+	 	    
+	    
+ 
+	    <h2>Store and Re-load Arrays</h2>
+	    
+<p>Arrays and Objects cannot be stored in local storage. To get around this, you must first change them to JSON or a similar format.</p>	    
+ 
+ 
+<pre><code data-language="javascript">
+	    
+// create the array and display it
+var taveren = [ "Rand al'Thor", "Perrin Aybara", "Matrim Cauthon"];
+//display it so we can see before we add data
+document.getElementById("WOT").innerHTML = taveren.join('<br/>');
+
+//create a function to save the array and add user input to the array 
+function saveArray(){
+var x = document.getElementById("WOT");
+taveren.push(document.getElementById("input").value);
+
+ 
+// store the array as a string
+
+localStorage.setItem("taveren", JSON.stringify(taveren));
+}
+
+//create a function to retrieve the data and convert it back into an array
+
+function loadArray(){ 
+var retrievedData = localStorage.getItem("taveren");
+var wot = JSON.parse(retrievedData);
+ 
+//display array with added data to show the end result
+document.getElementById("WOT").innerHTML = wot.join('<br/>');
+}
+ </code></pre>
+ 
+
+<p id="WOT"></p>	    
+	    
+<script>
+
+var taveren = [ "Rand al'Thor", "Perrin Aybara", "Matrim Cauthon"];
+document.getElementById("WOT").innerHTML = taveren.join('<br/>');
+
+function saveTaveren(){
+var x = document.getElementById("WOT");
+taveren.push(document.getElementById("input").value);
+     
+localStorage.setItem("taveren", JSON.stringify(taveren));
+}
+
+function loadTaveren(){ 
+// retrieving our data and converting it back into an array
+var retrievedData = localStorage.getItem("taveren");
+var wot = JSON.parse(retrievedData);
+
+document.getElementById("WOT").innerHTML = wot.join('<br/>');
+}
+	
+</script>
+
+	    
+    <textarea cols="50" name="input" id="input" title="Array Input">Enter your name here to be added to the list of Taveren!</textarea><br>
+    <button type="button" onclick="saveTaveren()">Save</button><br>
+    <button type="button" onclick="loadTaveren()">Load Array</button><br>
+	    
+	    
+    
+	        <h2>Store and Re-load Objects</h2>
+	    
+ Book Series: <input type="text" name="series" id="series"><br>
+    Volume: <input type="text" name="volume" id="volume"><br>
+    <button type="button" onclick="saveObject()">Save</button><br>
+    <button type="button" onclick="loadObject()">Load Data</button><br><br>
+    <textarea rows="5" cols="30" name="objectOutput" id="objectOutput" title="Array Input">Your Object</textarea><br>   
+   
+	    
+	    <script>
+function saveObject() {
+            var series = document.getElementById("series").value;
+            var volume = document.getElementById("volume").value;
+
+            var object1 = {
+                seriesName: series,
+                bookInSeries: volume,
+            };
+
+            var localObject = JSON.stringify(object1);
+            console.log("storing:", localObject);
+            localStorage.setItem("testObject", localObject);
+        }
+
+        function loadObject() {
+            var testObject = localStorage.getItem("testObject");
+            var parse = JSON.parse(testObject);
+		console.log  
+            document.getElementById("objectOutput").innerHTML = parse.bookInSeries + " is a book in the " + parse.seriesName + " series. ";	    
+	    
+	    
+	       }
+	    
+	    
+	    </script>
+	    
+	    
+	    <h2>Store and Load Associative Arrays</h2>
+
+    <pre><code data-language="javascript">
+    function saveAssociativeArray() {
+            var book1 = document.getElementById("book1").value;
+            var book2 = document.getElementById("book2").value;
+            var book3 = document.getElementById("book3").value;
+		var book4 = document.getElementById("book4").value;   
+
+            var book = [];
+            book[0] = book1;
+            book[1] = book2;
+            book[2] = book3;
+		book[3] = book4;  
+
+            var bookJason = JSON.stringify(book);
+            console.log("storing:", bookJason);
+            sessionStorage.setItem("testAssociativeArray", bookJason);
+        }
+
+  function loadAssociativeArray() {
+            var testAssociativeArray = sessionStorage.getItem("testAssociativeArray");
+            var parse = JSON.parse(testAssociativeArray);
+            document.getElementById("associativeArrayOutput").innerHTML = "Book 1: " + parse[0] + " Book 2: " + parse[1]
+            + " Book 3: " + parse[2] + " Book 4: " + parse[3];
+    </code></pre>
+    Book 1: <input type="text" name="book1" id="book1"><br>
+    Book 2: <input type="text" name="book2" id="book2"><br>
+    Book 3: <input type="text" name="book3" id="book3"><br>
+    Book 4: <input type="text" name="book4" id="book4"><br>
+	    
+    <button type="button" onclick="saveAssociativeArray()">Save</button><br>
+    <button type="button" onclick="loadAssociativeArray()">Load Data</button><br><br>
+    <textarea rows="5" cols="50" name="associativeArrayOutput" id="associativeArrayOutput" title="Array Input">Associative Array</textarea>
+
+
+
+    <script>
+	    
+	   function saveAssociativeArray() {
+            var book1 = document.getElementById("book1").value;
+            var book2 = document.getElementById("book2").value;
+            var book3 = document.getElementById("book3").value;
+		var book4 = document.getElementById("book4").value;   
+
+            var book = [];
+            book[0] = book1;
+            book[1] = book2;
+            book[2] = book3;
+		book[3] = book4;  
+
+            var bookJason = JSON.stringify(book);
+            console.log("storing:", bookJason);
+            sessionStorage.setItem("testAssociativeArray", bookJason);
+        }
+
+  function loadAssociativeArray() {
+            var testAssociativeArray = sessionStorage.getItem("testAssociativeArray");
+            var parse = JSON.parse(testAssociativeArray);
+            document.getElementById("associativeArrayOutput").innerHTML = "Book 1: " + parse[0] + " Book 2: " + parse[1]
+            + " Book 3: " + parse[2] + " Book 4: " + parse[3];
+        }
+	    
+	    
+    </script>
+	    
+	 
+ 
+	  
+	    
+      <footer class="site-footer">
+
+        <h6><span class="site-footer-credits"><a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span></h6>
+      </footer>
+
+    </section>
+
+  </body>
+</html>
