@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS3 Transtions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">CSS3 Transitions, Transforms, and Animation</h1>
+      <h2 class="project-tagline">CIT 261
+</h2>
+    </section>
+
+    <section class="main-content">
+	    
+<h2>HTML Events</h2>
+	    
+	    
+	    <p>HTML Events are things that happen to HTML elements. These are things that can happen with a page loads, when a button is clicked, when a user mouses over something, or when a key is pushed. JavaScrip lets you execute code when events are detected.</p>
+	    
+	    <br>
+	    <br>
+	    
+<section class="CssBox">    
+
+<div onload="default" id="default" class="finalbox" >
+	    <p id="p1"><br>***I used 'onload' to trigger an event with CSS Transform, transition and Animation.*** <br></p></div>
+	<br>
+	<br>
+	
+<span onmouseover="this.style.color='red'" onmouseout="this.style.color='orange'">I used 'mouseover' and 'mouseout' to change the color!</span>
+<br>
+	
+	  <br>  
+<script>
+	    
+function youWin(){
+	
+	var x = document.getElementById("default");
+	x.className = "win";
+	document.getElementById("p1").innerHTML = "Congrats! You win!!";
+}	    
+	    
+function youLose(){
+	var x = document.getElementById("default");
+	x.className = "lose";
+	document.getElementById("p1").innerHTML = "Sorry, you lose!";
+	
+}	    
+
+	    </script>
+	
+	<p>Both of the buttons below use 'onclick' to change the div above.</p>
+	    
+<button onclick="youWin('default');">Click here!</button>
+<button onclick="youLose('default');">No, click here!</button>    
+</section>
+	    
+    </section>
+
+  </body>
+</html>
