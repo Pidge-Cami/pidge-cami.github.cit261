@@ -1,197 +1,278 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>CIT 261 Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#549999">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Eat the White Cloaks!</h1>
+      <h2 class="project-tagline"> Web for CIT 261
+</h2>
+    </section>
 
-</head>
-<body>
+<div class="main-content">
+
+
+
+  <div id="timer" class="finalbox">
+    <p id="p2">
+      <br> Time Remaining to
+      <br>
+    </p>
+  </div>
+  <div class="progress">
+    <progress value="0" max="60" id="progressBar"></progress>
+  </div>
+  <div id="default" class="finalbox">
+    <p id="p1">
+      <br> Beat the Game!</p>
+  </div>
+  <br>
+
+  <p> Use the arrows on your keyboard to move Hopper the Wolf. Try to eat as many White Cloaks as you can before the timer runs out! If you eat more than 20 before time is up, you win!</p>
+   
+
 
 <script>
 //create canvans	
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 1000;
+canvas.width = 1085;
 canvas.height = 1000;
 document.body.appendChild(canvas);
-	
-	
+
+
 //set background after loaded
 var efReady = false;
 var efImage = new Image();
-efImage.onload = function () {
-	efReady = true;
+efImage.onload = function() {
+  efReady = true;
 };
-efImage.src = "image/EmondsField.jpg"; 
-	
+efImage.src = "image/EmondsField.jpg";
+
 //Hopper Image
-	
+
 var hopperReady = false;
 var hopperImage = new Image();
-hopperImage.onload = function () {
-	hopperReady = true;
+hopperImage.onload = function() {
+  hopperReady = true;
 };
-hopperImage.src = "image/hopper.png" ;
-	
+hopperImage.src = "image/hopper.png";
+
 //White Cloak Image
-	
+
 var wcReady = false;
 var wcImage = new Image();
-wcImage.onload = function(){
-	wcReady = true;	
-	
-};	
-	
-wcImage.src = "image/whiteCloaks.png";	
-	
+wcImage.onload = function() {
+  wcReady = true;
+
+};
+
+wcImage.src = "image/whiteCloaks.png";
+
 //Game Objects
-	
+
 var hopper = {
-speed: 266, // movement in px per second
-x:0,
-y:0	
-	
+  speed: 266, // movement in px per second
+  x: 0,
+  y: 0
+
 };
 var whiteCloak = {
-x: 0,
-y: 0	
-	
+  x: 0,
+  y: 0
+
 };
-	
-	
+
+
 var eatWhiteCloak = 0;
-	
-	
-function saveScore(){
-console.log("Saving score: " + eatWhiteCloak);
-localStorage.setItem("data", eatWhiteCloak);
 
-    }
 
-        function loadStoredValues() {
-            document.getElementById("eatWhiteCloak").value = localStorage.getItem("data");
-        }	
-		
+function saveScore() {
+  console.log("Saving score: " + eatWhiteCloak);
+  localStorage.setItem("data", eatWhiteCloak);
+
+}
+
+function loadStoredValues() {
+  document.getElementById("eatWhiteCloak").value = localStorage.getItem("data");
+}
+
 
 //keyboard controls
-	
+
 var keysDown = {};
-	
-addEventListener("keydown", function(e){
-	keysDown[e.keyCode] = true;
-	
-}, false);	
-	
+
+addEventListener("keydown", function(e) {
+  keysDown[e.keyCode] = true;
+
+}, false);
+
 addEventListener("keyup", function(e) {
-	delete keysDown[e.keyCode];
-	
-}, false);	
-	
-	
+  delete keysDown[e.keyCode];
+
+}, false);
+
+
 //reset the game when a White Cloak is eaten
-	
-var reset = function () {
-hopper.x = canvas.width / 2;
-hopper.y = canvas.height / 2;
-	
-	//randomly throw Whitecloak
-	
-	whiteCloak.x = 32 + (Math.random() * (canvas.width - 64));
-	whiteCloak.y = 32 + (Math.random() * (canvas.height - 64));
-	
+
+var reset = function() {
+  hopper.x = canvas.width / 2;
+  hopper.y = canvas.height / 2;
+
+  //randomly throw Whitecloak
+
+  whiteCloak.x = 32 + (Math.random() * (canvas.width - 64));
+  whiteCloak.y = 32 + (Math.random() * (canvas.height - 64));
+
 };
-	
-	
+
+
 // Update game objects
-	
-var update = function (modifier){
-	
-	if(38 in keysDown){
-	hopper.y -= hopper.speed * modifier;		
-	}
-	if (40 in keysDown){
-	hopper.y += hopper.speed * modifier;	
-		
-	}
-	
-	if(37 in keysDown){
-	hopper.x -= hopper.speed * modifier;		
-	}
-	if (39 in keysDown){
-	hopper.x += hopper.speed * modifier;	
-		
-	}	
-	
-//Hopper and White Cloak touching?
-	
-if(
-hopper.x <= (whiteCloak.x+32)
-&& whiteCloak.x <= (hopper.x +32)
-&& hopper.y <=(whiteCloak.y+32)
-&& whiteCloak.y <=(hopper.y +32)	
-)
-	{
-	++eatWhiteCloak;
-	saveScore();	
-		reset();
-	}
-};
-	
-	
-var render = function(){
-	if (efReady){
-	ctx.drawImage(efImage, 0, 0);	
-		
-	}
-	
-	if (hopperReady){
-	ctx.drawImage(hopperImage, hopper.x, hopper.y);	
-	}
-	
-	if (wcReady){
-	ctx.drawImage(wcImage, whiteCloak.x, whiteCloak.y);	
-	}
 
 
-//Score	
-	
-	ctx.fillStyle = "azure";
-	ctx.font = "24px Helvetica";
-	ctx.textAlign = "left";
-	ctx.textBaseline = "top";
-	ctx.fillText("Hopper has eaten " + eatWhiteCloak + " White Cloaks", 32, 32);
+
+var update = function(modifier) {
+
+  if (38 in keysDown) {
+    hopper.y -= hopper.speed * modifier;
+  }
+  if (40 in keysDown) {
+    hopper.y += hopper.speed * modifier;
+
+  }
+
+  if (37 in keysDown) {
+    hopper.x -= hopper.speed * modifier;
+  }
+  if (39 in keysDown) {
+    hopper.x += hopper.speed * modifier;
+
+  }
+
+  //Hopper and White Cloak touching?
+
+  if (
+    hopper.x <= (whiteCloak.x + 32) && whiteCloak.x <= (hopper.x + 32) && hopper.y <= (whiteCloak.y + 32) && whiteCloak.y <= (hopper.y + 32)
+  ) {
+    ++eatWhiteCloak;
+    saveScore();
+    reset();
+  }
 };
 
-	
+
+var render = function() {
+  if (efReady) {
+    ctx.drawImage(efImage, 0, 0);
+
+  }
+
+  if (hopperReady) {
+    ctx.drawImage(hopperImage, hopper.x, hopper.y);
+  }
+
+  if (wcReady) {
+    ctx.drawImage(wcImage, whiteCloak.x, whiteCloak.y);
+  }
 
 
-var main = function () {
-	var now = Date.now();
-	var delta = now - then;
+  //Score	
 
-	update(delta / 1000);
-	render();
+  ctx.fillStyle = "azure";
+  ctx.font = "24px Helvetica";
+  ctx.textAlign = "left";
+  ctx.textBaseline = "top";
+  ctx.fillText("Hopper has eaten " + eatWhiteCloak + " White Cloaks", 32, 32);
 
-	then = now;
+  if (
+    eatWhiteCloak > 1 && timeleft > 0) {
+    youWin();
+    saveScore();
+    //reset();
+  } else if (eatWhiteCloak < 1 && timeleft == 0
 
-	// Request to do this again ASAP
-	requestAnimationFrame(main);
+  ) {
+    youLose();
+    saveScore();
+    gameOver();
+  }
+
 };
-	
+
+
+var timeleft = 10;
+var downloadTimer = setInterval(function() {
+  document.getElementById("progressBar").value = 60 - --timeleft;
+  if (timeleft <= 0)
+    clearInterval(downloadTimer);
+
+}, 1000);
+
+
+
+
+var main = function() {
+  var now = Date.now();
+  var delta = now - then;
+
+  update(delta / 1000);
+  render();
+
+  then = now;
+
+  // Request to do this again ASAP
+  requestAnimationFrame(main);
+};
+
 // Cross-browser support for requestAnimationFrame
 var w = window;
-requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;	
-	
+requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+
 // Starts Game
 var then = Date.now();
 reset();
-main();	
+main();
+	
 	
 	</script>
+
+	    
+<script>
+		    
+function youWin() {
+
+  var x = document.getElementById("default");
+  x.className = "win";
+  document.getElementById("p1").innerHTML = "Congrats! You win!!";
+}
+
+function youLose() {
+  var x = document.getElementById("default");
+  x.className = "lose";
+  document.getElementById("p1").innerHTML = "Sorry, you lose!";
+
+}
+
+function gameOver() {
+
+  var x = document.getElementById("timer");
+  x.className = "gameOver";
+  document.getElementById("p2").innerHTML = "Time's up!";
+
+}
+
+
+	    </script>	
 	
-	
-	
-	
+	  </div>
+	  
 
 </body>
 </html>
