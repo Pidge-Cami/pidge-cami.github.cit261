@@ -1,7 +1,6 @@
-{
-  "workout": {
-    "Round 1": {
-      "Squats": 15,
+Workout: {
+    Round 1: {
+      Squats: 15,
       "Lunges": 15,
 	  "Step ups":50,
 	  "Push ups":30
