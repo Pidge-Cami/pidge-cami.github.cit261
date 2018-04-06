@@ -1,17 +1,7 @@
- "workout 2"{
-    "Round 1": {
-     "Squats": 15,
-     "Lunges": 15,
-	    "Step ups":50,
-	  "Push ups":30
-   },
-   "Round 2": {
-	   "Crunches": 30,
-      "Plank": "30 Seconds",
-	  "Bicycle kicks": 25
-    },
-    "Cool Down": {
-      "Ham String Stretch": "15 seconds each side",
-     "IT Band Strech": "15 seconds each side"
-    }
-  }
+{
+"Workout2":[
+    {"exerciseName":"Squats", "repCount":"50"}, 
+    {"exerciseName":"Lunges", "repCount":"25 each side"},
+    {"exerciseName":"Jump Squats", "repCount":"25"}
+]
+}
