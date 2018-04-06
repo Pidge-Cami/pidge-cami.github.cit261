@@ -1,7 +1,7 @@
-{
-"Workout2":[
-    {"exerciseName":"Squats", "repCount":"50"}, 
-    {"exerciseName":"Lunges", "repCount":"25 each side"},
-    {"exerciseName":"Jump Squats", "repCount":"25"}
-]
-}
+    "name":"Workout 2",
+    "age":31,
+    "pets":[
+        { "animal":"dog", "name":"Fido" },
+        { "animal":"cat", "name":"Felix" },
+        { "animal":"hamster", "name":"Lightning" }
+    ]
