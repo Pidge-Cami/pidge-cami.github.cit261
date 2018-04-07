@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+	  
+    <title>Cami Pidge- Shoedometer CIT 261</title>
+    <meta name="description" content="Shoedometer CIT 261">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	  
+	  
+	  
+	  
+  
+    <!--STYLE SHEETS -->
+	<link href="style/normalize.css" rel="stylesheet">
+	<!-- phone defualt -->
+	<link href="style/main.css" rel="stylesheet"> 
+	<!--enhance-tablet -->
+	<link href="style/medium.css" rel="stylesheet">
+    <!--enhance-desktop-->
+	<link href="style/large.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito" rel="stylesheet">
+	  
+	<script type="text/javascript" src="scripts/responsiveMenu.js" defer></script>  
+	<script type="text/javascript" src="scripts/scripts.js" defer></script>  
+	  
+    </head>
+    <body>
+    <header>
+		<h1>Run Keeper</h1>
+    </header>
+       
+
+<!-- MAIN HERE -->	
+    <main>
+
+	    <div id="tableInput">
+	<table>
+	<tr>
+			<td>Date:</td>
+			<td><input type="text" placeholder="MM-DD" id="runDate"></td>
+		</tr>
+		<tr>
+			<td>Time:</td>
+			<td><input type="text" placeholder="00:00" id="runTime"></td>
+		</tr>
+		<tr>
+			<td>Distance in Miles:</td>
+			<td><input type="text" placeholder="00" id="runDistance">
+                </tr>
+                <tr>
+                    <td>Location </td>
+                <td><input type="text" id="runLocation">
+			<input type="button" id="add" value="Add Run" onclick="addRun()"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	    </div>
+            
+            <br><br>
+             <div id="tableOutput">  
+                <table id="runHistory"  border="1" cellpadding="2">
+		<tr>
+			<td><b>Date</b></td>
+			<td><b>Time</b></td>
+			<td><b>Distance</b></td>
+                  <td><b>Location</b></td>
+		</tr>
+	</table>
+	    
+</div>  
+	<script> 
+	
+	
+function addRun() { 
+	
+	var date = document.getElementById("runDate");
+	var distance = document.getElementById("runDistance");
+	var time = document.getElementById("runTime");
+    var location = document.getElementById("runLocation");
+    
+    var table = document.getElementById("runHistory");
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    row.insertCell(0).innerHTML= date.value;
+    row.insertCell(1).innerHTML= time.value;
+    row.insertCell(2).innerHTML= distance.value;
+    row.insertCell(3).innerHTML= location.value;
+    
+	    
+}
+</script>
+
+   <br>
+	    <br>
+	    <br>
+	    
+	    
+	    <div id="getWorkOut" class="default">
+<h1>Click below for a random Cross Train Workout</h1>
+<button type="button" onclick="loadWorkOut()">Get Work-out</button>
+</div>
+	    
+	    
+	    
+<script>
+	    
+function loadWorkOut(){
+	 
+var index = ["legs.txt", "core.txt", "fullbody.txt"];
+requests=new Array(index.length);
+for (let i = 0; i < index.length; i++) {
+    var url = "https://raw.githubusercontent.com/Pidge-Cami/pidge-cami.github.io/master/JSON/" + index[i];
+    requests[i] = new XMLHttpRequest();
+    requests[i].open("GET", url);
+    requests[i].onload = function() {
+        //var myObj = JSON.parse(requests[i].responseText);
+	    document.getElementById("getWorkOut").innerHTML = requests[i].responseText;
+        //console.log(myObj);
+    }
+    requests[i].send();
+}
+	
+var x = document.getElementById("getWorkOut");
+  x.className = "motivate";
+  document.getElementById("p1").innerHTML = "You are gonna kill this workout!";
+	
+}	    
+	    
+	    
+	   
+	    </script>	    
+	    
+	    
+    </main>
+    
+	<footer> 
+		
+ 
+	
+	<div id="displayDate"></div> 
+		
+		<p> &#169; || Cami Pidge ||  Oklahoma ||  <a href="https://urldefense.proofpoint.com/v2/url?u=http-3A__www.byui.edu_online&d=DwMGAg&c=SAbiaX0r7qzgR-m0orrYZqJBC6x6dhYqv2k9zfIfhj4&r=ilQFh8wUIxKPk-vDc1ZVBII1MnpPnILt0Ake4FNlVDU&m=_2IPzse3NsNsBOAvTleNW7-86lYfsvex9KCKe9o4SbA&s=4DlqNthLFO8yaSkJklUxR1Jav7WJ_MGlCNgtj8BCbiY&e=">BYU-Idaho</a></p>
+		
+	
+      
+    </footer>
+</body>
+   
+</html>

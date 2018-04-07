@@ -1,0 +1,202 @@
+/* NAVIGATION */
+nav {
+	background-color: #05375D;
+}
+nav button{
+	position: absolute;
+	top: 1.25rem;
+	right: 2%;
+}
+nav ul {
+	display: flex; 
+	display: -ms-flexbox;
+	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	margin: 0; 
+	padding: 0;}
+nav ul.show{
+	display: flex;
+	display: -ms-flexbox;
+	}
+nav ul.hide{display: none;}
+
+nav ul li {
+	list-style-type: none;
+	flex-basis: 100%;
+	-ms-flex: 100%;
+}
+
+nav ul li a {
+    display: block;
+    color: darkgrey;
+    text-align: center;
+    padding: .5rem 0;
+	font-size: 1rem;
+    text-decoration: none;
+	border-bottom: solid 1px #333;
+}
+
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+nav ul li.active a {
+	background-color: #022845;
+}
+
+/* MAIN */
+
+
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-div {
+  text-align: center;
+  padding: 10px;
+  flex: 3 33%;
+}
+
+div.motivate {
+  width: 100;
+  height: 100;
+  background: purple;
+  color: darkgray;
+  font-size: 1em;
+  -webkit-transition: width 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 2s, transform 2s, background 2s, font-size 2s, color 2s;
+}
+
+div.motivate {
+  width: 250px;
+  height: 100px;
+  background: purple;
+  font-size: 1.5em;
+  padding: inherit;	
+  color: darkgray;
+  transform: rotate(360deg);
+  position: relative;
+  animation-name: example1;
+  animation-duration: 4s;
+  -webkit-animation-name: example1;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s;
+  /* Safari 4.0 - 8.0 */
+}
+
+div.finalbox {
+  width: 100;
+  height: 100;
+  background: purple;
+  color: darkgray;
+  font-size: 1em;
+  -webkit-transition: width 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 2s, transform 2s, background 2s, font-size 2s, color 2s;
+}
+
+div.finalbox {
+  width: 150px;
+  background: purple;
+  font-size: 1.5em;
+  color: darkgray;
+  transform: rotate(360deg);
+  position: relative;
+  animation-name: example1;
+  animation-duration: 4s;
+  -webkit-animation-name: example1;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s;
+  /* Safari 4.0 - 8.0 */
+}
+
+
+
+
+
+.hideSmall{display:none;}
+
+h1,h2,h3{
+	 font-family:Nunito;	
+}
+
+h1 {
+    font-size: 30px;
+    color: whitesmoke;
+	margin-left:2%
+}
+
+h2 {
+    font-size: 25px;
+
+}
+h3 {
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid #bbb;
+	
+	
+}
+
+
+body { 
+    font-size: 14px; 
+    line-height: 20px;
+    font-family: Montserrat;
+    color: whitesmoke;
+	background-color: #333;
+}
+
+
+
+	
+table {
+	font-size: 16px;
+	padding:14px;
+	justify-content: center;
+}
+
+th{
+	padding:25px;
+}
+td{
+	padding:10px
+}
+
+header, main, footer {
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 1500px;
+}
+
+header, footer, footer a {
+    text-align: center;
+    background-color: #1A5888;
+    color: whitesmoke;
+}
+
+main figure.photoFullWidth{
+	margin: 0;
+	width: 90%;}
+main figure.photoFullWidth img {width: 100%;}
+
+
+
+
+footer {
+    font-size: 16px;
+	font-family: Nunito Vernon Adams;
+}
+
+/*---- OTHER ----*/
+.clearfix:after, .row:after {
+	content:"";
+	display: table;
+	clear: both;
+}
